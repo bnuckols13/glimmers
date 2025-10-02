@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glimmers - Expressive Arts Journey</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-teal: #5EEAD4;
+            --deep-teal: #14B8A6;
+            --sage-green: #87A878;
+            --soft-sage: #A8C09A;
+            --warm-rose: #FDA4AF;
+            --soft-coral: #F4A09C;
+            --soft-purple: #C084FC;
+            --gentle-lavender: #B19CD9;
+            --calm-blue: #93C5FD;
+            --sky-blue: #87CEEB;
+            --golden: #FFD700;
+            --warm-gold: #F4C542;
+            --midnight: #1E293B;
+            --slate: #475569;
+            --pearl: #F8FAFC;
+            --cream: #FFF8E7;
+            
+            --gradient-calm: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-nature: linear-gradient(135deg, #5EEAD4 0%, #93C5FD 100%);
+            --gradient-warm: linear-gradient(135deg, #FDA4AF 0%, #C084FC 100%);
+            --gradient-golden: linear-gradient(135deg, #FFD700 0%, #F4C542 100%);
+            --gradient-earth: linear-gradient(135deg, #87A878 0%, #7BA7BC 100%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #FFD70010 0%, #5EEAD410 100%);
+            min-height: 100vh;
+            color: var(--midnight);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Enhanced floating background elements with glimmer effect */
+        .bg-circle {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0;
+            animation: glimmerFloat 25s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes glimmerFloat {
+            0%, 100% { 
+                transform: translate(0, 0) scale(1); 
+                opacity: 0.15;
+            }
+            25% { 
+                transform: translate(40px, -40px) scale(1.2); 
+                opacity: 0.35;
+            }
+            50% { 
+                transform: translate(-30px, 30px) scale(0.9); 
+                opacity: 0.25;
+            }
+            75% { 
+                transform: translate(20px, -20px) scale(1.1); 
+                opacity: 0.3;
+            }
+        }
+
+        .bg-circle1 {
+            width: 400px;
+            height: 400px;
+            background: var(--golden);
+            top: -150px;
+            right: -150px;
+            animation-delay: 0s;
+        }
+
+        .bg-circle2 {
+            width: 350px;
+            height: 350px;
+            background: var(--primary-teal);
+            bottom: -100px;
+            left: -100px;
+            animation-delay: -8s;
+        }
+
+        .bg-circle3 {
+            width: 300px;
+            height: 300px;
+            background: var(--soft-purple);
+            top: 40%;
+            right: 5%;
+            animation-delay: -15s;
+        }
+
+        .bg-circle4 {
+            width: 280px;
+            height: 280px;
+            background: var(--warm-rose);
+            top: 20%;
+            left: 10%;
+            animation-delay: -20s;
+        }
+
+        /* Sparkle overlay effect */
+        .sparkle-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--golden);
+            border-radius: 50%;
+            animation: sparkleFloat 4s infinite ease-in-out;
+            opacity: 0;
+        }
+
+        @keyframes sparkleFloat {
+            0%, 100% { 
+                transform: translateY(0) scale(0); 
+                opacity: 0;
+            }
+            50% { 
+                transform: translateY(-30px) scale(1); 
+                opacity: 0.8;
+            }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Enhanced Header */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: slideDown 1s ease;
+            position: relative;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 3rem;
+            background: var(--gradient-golden);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '✨';
+            position: absolute;
+            right: -40px;
+            top: -10px;
+            font-size: 1.5rem;
+            animation: twinkle 2s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.4; transform: scale(1) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.2) rotate(20deg); }
+        }
+
+        .subtitle {
+            color: var(--slate);
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .glimmer-definition {
+            max-width: 800px;
+            margin: 1.5rem auto 0;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.08) 0%, rgba(94, 234, 212, 0.08) 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .glimmer-definition p {
+            color: var(--midnight);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            background: white;
+            border: 2px solid transparent;
+            color: var(--slate);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-golden);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .nav-tab:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.2);
+        }
+
+        .nav-tab:hover::before {
+            left: 0;
+        }
+
+        .nav-tab.active {
+            background: var(--gradient-golden);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .nav-tab.active::before {
+            left: 0;
+        }
+
+        /* Page System */
+        .page {
+            display: none;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Enhanced Cards */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-golden);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.15);
+        }
+
+        .card h2 {
+            color: var(--midnight);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-golden);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Station Grid */
+        .station-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .station-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid rgba(94, 234, 212, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .station-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-nature);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .station-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(94, 234, 212, 0.25);
+            border-color: var(--primary-teal);
+        }
+
+        .station-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .station-card.selected {
+            border-color: var(--golden);
+            box-shadow: 0 15px 50px rgba(255, 215, 0, 0.3);
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(94, 234, 212, 0.1) 100%);
+        }
+
+        .station-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .station-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: bounce 2s infinite ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .station-card:hover .station-icon {
+            animation: spin 0.6s ease;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg) scale(1); }
+            to { transform: rotate(360deg) scale(1.2); }
+        }
+
+        .station-title {
+            color: var(--deep-teal);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .station-subtitle {
+            color: var(--slate);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .station-description {
+            color: var(--midnight);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .station-prompts {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(94, 234, 212, 0.05) 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1rem;
+        }
+
+        .station-prompts h4 {
+            color: var(--deep-teal);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .station-prompts ul {
+            list-style: none;
+            color: var(--slate);
+            line-height: 2;
+        }
+
+        .station-prompts li {
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .station-prompts li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            opacity: 0.7;
+        }
+
+        /* Progress Tracker */
+        .progress-section {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.08) 0%, rgba(192, 132, 252, 0.08) 100%);
+            border-radius: 20px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-header h3 {
+            color: var(--midnight);
+            font-size: 1.3rem;
+        }
+
+        .progress-count {
+            background: var(--gradient-golden);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .station-badges {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .station-badge {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border-radius: 50px;
+            border: 2px solid rgba(94, 234, 212, 0.2);
+            color: var(--slate);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .station-badge.completed {
+            background: var(--gradient-nature);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(94, 234, 212, 0.3);
+        }
+
+        /* Meditation Section */
+        .meditation-card {
+            background: linear-gradient(135deg, rgba(103, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+        }
+
+        .meditation-text {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: var(--midnight);
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .meditation-guide {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin-top: 1.5rem;
+        }
+
+        .meditation-guide h4 {
+            color: var(--deep-teal);
+            margin-bottom: 1rem;
+        }
+
+        .meditation-guide p {
+            color: var(--slate);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 1rem 2.5rem;
+            background: var(--gradient-golden);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.5);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--deep-teal);
+            border: 2px solid var(--primary-teal);
+            margin-left: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(94, 234, 212, 0.1);
+            box-shadow: 0 8px 30px rgba(94, 234, 212, 0.3);
+        }
+
+        /* Integration Section */
+        .integration-prompts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .prompt-card {
+            background: linear-gradient(135deg, rgba(253, 164, 175, 0.1) 0%, rgba(192, 132, 252, 0.1) 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .prompt-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(192, 132, 252, 0.2);
+        }
+
+        .prompt-card h4 {
+            color: var(--deep-teal);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .prompt-card textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 1rem;
+            border: 2px solid rgba(94, 234, 212, 0.3);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            resize: vertical;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .prompt-card textarea:focus {
+            outline: none;
+            border-color: var(--primary-teal);
+            box-shadow: 0 0 0 4px rgba(94, 234, 212, 0.1);
+        }
+
+        /* Glimmer Collection */
+        .glimmer-collection {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .glimmer-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .glimmer-item::before {
+            content: '✨';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .glimmer-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+            border-color: var(--golden);
+        }
+
+        .glimmer-item:hover::before {
+            opacity: 1;
+        }
+
+        .glimmer-item p {
+            color: var(--midnight);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .container { padding: 1rem; }
+            .card { padding: 1.5rem; }
+            .nav-tabs { flex-direction: column; }
+            .station-grid { grid-template-columns: 1fr; }
+            .btn { 
+                width: 100%; 
+                margin: 0.5rem 0;
+            }
+            .btn-secondary { margin-left: 0; }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Loading animation */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Background Elements -->
+    <div class="bg-circle bg-circle1"></div>
+    <div class="bg-circle bg-circle2"></div>
+    <div class="bg-circle bg-circle3"></div>
+    <div class="bg-circle bg-circle4"></div>
+
+    <!-- Sparkle Overlay -->
+    <div class="sparkle-overlay" id="sparkleContainer"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Glimmers</h1>
+            <p class="subtitle">An Expressive Arts Journey Through Moments of Light</p>
+            
+            <div class="glimmer-definition">
+                <p><strong>What is a Glimmer?</strong> A glimmer is a micro-moment of joy, safety, or connection that helps regulate your nervous system. Unlike triggers that activate distress, glimmers activate feelings of calm, peace, and wellbeing. They're the small moments that make you feel more alive, more present, more yourself.</p>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showPage(0)">
+                Introduction
+            </button>
+            <button class="nav-tab" onclick="showPage(1)">
+                Creative Stations
+            </button>
+            <button class="nav-tab" onclick="showPage(2)">
+                Integration
+            </button>
+            <button class="nav-tab" onclick="showPage(3)">
+                My Glimmers
+            </button>
+        </div>
+
+        <!-- Page 1: Introduction & Meditation -->
+        <div class="page active" id="page1">
+            <div class="card fade-in-section">
+                <h2>
+                    <div class="icon">☀</div>
+                    Opening Meditation
+                </h2>
+                
+                <div class="meditation-card">
+                    <div class="meditation-text">
+                        "In the midst of winter, I found there was, within me, an invincible summer."
+                        <br><em>— Albert Camus</em>
+                    </div>
+                    
+                    <div class="meditation-guide">
+                        <h4>Finding Your Inner Light</h4>
+                        <p>Close your eyes or soften your gaze. Take three deep breaths, allowing your body to settle.</p>
+                        
+                        <p>Notice the weight of your body being held by what's beneath you. Feel the temperature of the air on your skin. Listen to the sounds around you without judgment.</p>
+                        
+                        <p>Now, bring to mind a small moment recently when you felt even a tiny spark of peace, joy, or connection. Maybe it was:</p>
+                        <ul style="color: var(--slate); line-height: 2; margin: 1rem 0;">
+                            <li>• The warmth of sunlight through a window</li>
+                            <li>• A smile from a stranger</li>
+                            <li>• The taste of your morning coffee</li>
+                            <li>• A song that moved you</li>
+                            <li>• Your pet's greeting</li>
+                            <li>• The comfort of your favorite sweater</li>
+                        </ul>
+                        
+                        <p>Hold that moment gently in your awareness. Notice where you feel it in your body. Does your chest soften? Do your shoulders drop? Does your breath deepen?</p>
+                        
+                        <p><strong>This is a glimmer.</strong> Your nervous system recognizing safety, beauty, or connection. Today, we'll explore these moments through creative expression, amplifying your capacity to notice and cultivate light in your life.</p>
+                        
+                        <p>When you're ready, open your eyes and begin your journey.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card fade-in-section">
+                <h2>
+                    <div class="icon">i</div>
+                    Understanding Glimmers
+                </h2>
+                
+                <div style="padding: 1.5rem; background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(94, 234, 212, 0.05) 100%); border-radius: 16px;">
+                    <h3 style="color: var(--deep-teal); margin-bottom: 1rem;">The Science of Glimmers</h3>
+                    
+                    <p style="color: var(--midnight); line-height: 1.8; margin-bottom: 1rem;">
+                        Coined by Deb Dana, glimmers are the opposite of triggers. While triggers signal danger and activate our threat response, glimmers signal safety and activate our social engagement system through the vagus nerve.
+                    </p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                        <div style="background: white; padding: 1.5rem; border-radius: 12px;">
+                            <h4 style="color: var(--warm-rose); margin-bottom: 0.75rem;">Neurological</h4>
+                            <p style="color: var(--slate); line-height: 1.6; font-size: 0.95rem;">Activates the ventral vagal pathway, promoting feelings of safety and social connection</p>
+                        </div>
+                        
+                        <div style="background: white; padding: 1.5rem; border-radius: 12px;">
+                            <h4 style="color: var(--primary-teal); margin-bottom: 0.75rem;">Physical</h4>
+                            <p style="color: var(--slate); line-height: 1.6; font-size: 0.95rem;">Softens breath, relaxes muscles, lowers heart rate, and releases feel-good neurotransmitters</p>
+                        </div>
+                        
+                        <div style="background: white; padding: 1.5rem; border-radius: 12px;">
+                            <h4 style="color: var(--soft-purple); margin-bottom: 0.75rem;">Healing</h4>
+                            <p style="color: var(--slate); line-height: 1.6; font-size: 0.95rem;">Builds resilience by training your nervous system to recognize and seek out safety cues</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <button class="btn" onclick="showPage(1)">
+                    Begin Your Creative Journey ✨
+                </button>
+            </div>
+        </div>
+
+        <!-- Page 2: Creative Stations -->
+        <div class="page" id="page2">
+            <div class="card fade-in-section">
+                <h2>
+                    <div class="icon">🎨</div>
+                    Creative Exploration Stations
+                </h2>
+                <p style="color: var(--slate); margin-bottom: 1rem; line-height: 1.7;">
+                    Choose any station that calls to you. There's no right order—follow your creative instincts and explore glimmers through different modalities.
+                </p>
+            </div>
+
+            <div class="station-grid">
+                <!-- Visual Arts Station -->
+                <div class="station-card fade-in-section" onclick="toggleStation(this, 'visual')">
+                    <div class="station-icon">🖌️</div>
+                    <h3 class="station-title">Glimmer Gallery</h3>
+                    <p class="station-subtitle">Visual Arts • Collage • Drawing • Painting</p>
+                    <p class="station-description">
+                        Create visual representations of your glimmers. Use colors, images, textures, and shapes to capture moments when your nervous system felt safe and alive.
+                    </p>
+                    <div class="station-prompts">
+                        <h4>Creative Explorations:</h4>
+                        <ul>
+                            <li>Create a "glimmer map" of places where you feel most at peace</li>
+                            <li>Collage images that represent micro-moments of joy this week</li>
+                            <li>Draw the colors and shapes of safety in your body</li>
+                            <li>Paint what "invincible summer" looks like to you</li>
+                            <li>Design a glimmer catcher—what would it look like?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Movement Station -->
+                <div class="station-card fade-in-section" onclick="toggleStation(this, 'movement')">
+                    <div class="station-icon">💃</div>
+                    <h3 class="station-title">Embodied Light</h3>
+                    <p class="station-subtitle">Movement • Dance • Somatic Expression</p>
+                    <p class="station-description">
+                        Move the feelings of your glimmers. Let your body remember and express moments of safety, joy, and connection through gentle, intuitive movement.
+                    </p>
+                    <div class="station-prompts">
+                        <h4>Movement Invitations:</h4>
+                        <ul>
+                            <li>Move like sunlight breaking through clouds</li>
+                            <li>Dance the feeling of your favorite safe place</li>
+                            <li>Embody the sensation of a warm hug</li>
+                            <li>Move between contracted (triggered) and expanded (glimmering)</li>
+                            <li>Create a movement ritual for welcoming glimmers</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Music Station -->
+                <div class="station-card fade-in-section" onclick="toggleStation(this, 'music')">
+                    <div class="station-icon">🎵</div>
+                    <h3 class="station-title">Soundscapes of Safety</h3>
+                    <p class="station-subtitle">Music • Sound • Voice • Rhythm</p>
+                    <p class="station-description">
+                        Explore glimmers through sound. Create playlists, hum, sing, or use instruments to express moments when you felt regulated and alive.
+                    </p>
+                    <div class="station-prompts">
+                        <h4>Sonic Explorations:</h4>
+                        <ul>
+                            <li>Curate a "Glimmer Playlist" of songs that calm your nervous system</li>
+                            <li>Hum or sing sounds that represent safety to you</li>
+                            <li>Create rhythms that match your heartbeat when you feel peaceful</li>
+                            <li>Record sounds from nature or your environment that soothe you</li>
+                            <li>Write a simple melody that captures a glimmer moment</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Poetry Station -->
+                <div class="station-card fade-in-section" onclick="toggleStation(this, 'poetry')">
+                    <div class="station-icon">✍️</div>
+                    <h3 class="station-title">Glimmer Verses</h3>
+                    <p class="station-subtitle">Poetry • Haiku • Free Verse</p>
+                    <p class="station-description">
+                        Capture glimmers in words. Write poems that hold the fleeting beauty of moments when your nervous system whispers "you're safe."
+                    </p>
+                    <div class="station-prompts">
+                        <h4>Poetic Invitations:</h4>
+                        <ul>
+                            <li>Write a haiku for each glimmer you noticed today</li>
+                            <li>Create an acrostic poem using the word GLIMMER or SAFETY</li>
+                            <li>Write a love letter to a small moment that brought you peace</li>
+                            <li>Compose a "Where I'm From" poem about your glimmer origins</li>
+                            <li>Write a poem to your nervous system, thanking it for noticing light</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Creative Writing Station -->
+                <div class="station-card fade-in-section" onclick="toggleStation(this, 'writing')">
+                    <div class="station-icon">📝</div>
+                    <h3 class="station-title">Stories of Light</h3>
+                    <p class="station-subtitle">Creative Nonfiction • Fiction • Journaling</p>
+                    <p class="station-description">
+                        Tell the stories of your glimmers. Write personal narratives, imagine fictional characters discovering glimmers, or journal about your relationship with safety.
+                    </p>
+                    <div class="station-prompts">
+                        <h4>Writing Prompts:</h4>
+                        <ul>
+                            <li>Write about a time someone offered you an unexpected glimmer</li>
+                            <li>Imagine a character who collects glimmers—tell their story</li>
+                            <li>Journal about how your glimmers have changed over time</li>
+                            <li>Write a letter to your past self about finding light in darkness</li>
+                            <li>Create a "Glimmer Guide" for someone who's struggling to find them</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Drama Station -->
+                <div class="station-card fade-in-section" onclick="toggleStation(this, 'drama')">
+                    <div class="station-icon">🎭</div>
+                    <h3 class="station-title">Embodied Narratives</h3>
+                    <p class="station-subtitle">Drama • Role Play • Improvisation</p>
+                    <p class="station-description">
+                        Act out the story of your glimmers. Use drama and embodiment to explore different aspects of safety, connection, and nervous system healing.
+                    </p>
+                    <div class="station-prompts">
+                        <h4>Dramatic Explorations:</h4>
+                        <ul>
+                            <li>Embody a glimmer as a character—what would it say?</li>
+                            <li>Create a dialogue between your triggered self and your glimmering self</li>
+                            <li>Role-play offering a glimmer to someone who needs it</li>
+                            <li>Improvise a scene where you teach someone to notice glimmers</li>
+                            <li>Perform a monologue from the perspective of your nervous system</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Open Intuitive Station -->
+                <div class="station-card fade-in-section" onclick="toggleStation(this, 'intuitive')">
+                    <div class="station-icon">🌈</div>
+                    <h3 class="station-title">Intuitive Expression</h3>
+                    <p class="station-subtitle">Free Choice • Mixed Media • Your Way</p>
+                    <p class="station-description">
+                        Follow your creative impulse. Combine modalities, try something new, or simply let your hands and heart explore glimmers in whatever way feels right.
+                    </p>
+                    <div class="station-prompts">
+                        <h4>Free Exploration:</h4>
+                        <ul>
+                            <li>What does your body want to create right now?</li>
+                            <li>Combine multiple art forms to express a single glimmer</li>
+                            <li>Create something with your non-dominant hand</li>
+                            <li>Make art while listening to calming music</li>
+                            <li>Trust whatever emerges—there are no rules here</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Tracker -->
+            <div class="progress-section fade-in-section">
+                <div class="progress-header">
+                    <h3>🌟 Your Creative Journey</h3>
+                    <div class="progress-count" id="progressCount">0 / 7 Stations Explored</div>
+                </div>
+                <div class="station-badges">
+                    <div class="station-badge" id="badge-visual">Glimmer Gallery</div>
+                    <div class="station-badge" id="badge-movement">Embodied Light</div>
+                    <div class="station-badge" id="badge-music">Soundscapes</div>
+                    <div class="station-badge" id="badge-poetry">Glimmer Verses</div>
+                    <div class="station-badge" id="badge-writing">Stories of Light</div>
+                    <div class="station-badge" id="badge-drama">Embodied Narratives</div>
+                    <div class="station-badge" id="badge-intuitive">Intuitive Expression</div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <button class="btn" onclick="showPage(2)">
+                    Continue to Integration ✨
+                </button>
+            </div>
+        </div>
+
+        <!-- Page 3: Integration -->
+        <div class="page" id="page3">
+            <div class="card fade-in-section">
+                <h2>
+                    <div class="icon">💫</div>
+                    Integration & Reflection
+                </h2>
+                <p style="color: var(--slate); margin-bottom: 2rem; line-height: 1.7;">
+                    Take time to reflect on your creative journey. What did you discover about your glimmers? How did different art forms help you access safety and connection?
+                </p>
+
+                <div class="integration-prompts">
+                    <div class="prompt-card">
+                        <h4>🌟 Glimmers I Discovered</h4>
+                        <textarea placeholder="What micro-moments of safety, joy, or connection did you notice or remember during this process?"></textarea>
+                    </div>
+
+                    <div class="prompt-card">
+                        <h4>🎨 Creative Insights</h4>
+                        <textarea placeholder="Which art form helped you access your glimmers most deeply? What surprised you?"></textarea>
+                    </div>
+
+                    <div class="prompt-card">
+                        <h4>💓 Body Wisdom</h4>
+                        <textarea placeholder="What did you notice in your body as you created? Where do you feel glimmers physically?"></textarea>
+                    </div>
+
+                    <div class="prompt-card">
+                        <h4>🌱 Moving Forward</h4>
+                        <textarea placeholder="How can you intentionally cultivate more glimmers in your daily life? What practices will you continue?"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card fade-in-section">
+                <h2>
+                    <div class="icon">🌸</div>
+                    Closing Reflection
+                </h2>
+                
+                <div style="padding: 2rem; background: linear-gradient(135deg, rgba(103, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%); border-radius: 16px;">
+                    <p style="color: var(--midnight); line-height: 2; text-align: center; font-size: 1.05rem; margin-bottom: 2rem;">
+                        <em>"The wound is the place where the Light enters you."</em><br>
+                        — Rumi
+                    </p>
+                    
+                    <div style="background: white; padding: 1.5rem; border-radius: 12px; margin-top: 1.5rem;">
+                        <h4 style="color: var(--deep-teal); margin-bottom: 1rem;">Gratitude Practice</h4>
+                        <p style="color: var(--slate); line-height: 1.8; margin-bottom: 1rem;">
+                            Take a moment to thank yourself for showing up today. For being willing to notice the light, to create, to explore your capacity for safety and connection.
+                        </p>
+                        <p style="color: var(--slate); line-height: 1.8; margin-bottom: 1rem;">
+                            Your nervous system is learning. With each glimmer you notice, you're building new neural pathways toward regulation, resilience, and wellbeing.
+                        </p>
+                        <p style="color: var(--midnight); line-height: 1.8; font-weight: 600;">
+                            May you continue to find—and create—glimmers of light, even in the midst of winter. Your invincible summer is always there, waiting to be remembered.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <button class="btn" onclick="showPage(3)">
+                    Save My Glimmers 💫
+                </button>
+                <button class="btn btn-secondary" onclick="showPage(0)">
+                    Return to Beginning
+                </button>
+            </div>
+        </div>
+
+        <!-- Page 4: My Glimmers Collection -->
+        <div class="page" id="page4">
+            <div class="card fade-in-section">
+                <h2>
+                    <div class="icon">📔</div>
+                    My Glimmer Collection
+                </h2>
+                <p style="color: var(--slate); margin-bottom: 2rem; line-height: 1.7;">
+                    This is your personal glimmer journal. Add moments of light as you discover them. Return here whenever you need reminders of safety and connection.
+                </p>
+
+                <div style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.08) 0%, rgba(94, 234, 212, 0.08) 100%); padding: 2rem; border-radius: 16px; margin-bottom: 2rem;">
+                    <h3 style="color: var(--deep-teal); margin-bottom: 1rem;">Add a New Glimmer ✨</h3>
+                    <textarea id="newGlimmer" style="width: 100%; min-height: 100px; padding: 1rem; border: 2px solid rgba(94, 234, 212, 0.3); border-radius: 12px; font-size: 1rem; font-family: inherit; margin-bottom: 1rem;" placeholder="Describe a micro-moment of joy, safety, or connection you noticed..."></textarea>
+                    <button class="btn" onclick="addGlimmer()">Save This Glimmer 💫</button>
+                </div>
+
+                <div id="glimmerList" class="glimmer-collection">
+                    <!-- Glimmers will be added here dynamically -->
+                    <div class="glimmer-item">
+                        <p><strong>Example:</strong> The way morning sunlight made patterns on my wall</p>
+                    </div>
+                    <div class="glimmer-item">
+                        <p><strong>Example:</strong> My cat purring while sitting on my lap</p>
+                    </div>
+                    <div class="glimmer-item">
+                        <p><strong>Example:</strong> The smell of fresh coffee brewing</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <button class="btn btn-secondary" onclick="showPage(0)">
+                    Return to Beginning
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize visited stations
+        let visitedStations = new Set();
+        let glimmers = [];
+
+        // Page Navigation
+        function showPage(pageIndex) {
+            const pages = document.querySelectorAll('.page');
+            const tabs = document.querySelectorAll('.nav-tab');
+            
+            pages.forEach((page, index) => {
+                page.classList.toggle('active', index === pageIndex);
+            });
+            
+            tabs.forEach((tab, index) => {
+                tab.classList.toggle('active', index === pageIndex);
+            });
+
+            // Smooth scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Trigger fade-in animations
+            setTimeout(() => {
+                const fadeElements = document.querySelectorAll('.fade-in-section');
+                fadeElements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('visible');
+                    }, index * 100);
+                });
+            }, 100);
+        }
+
+        // Toggle station selection
+        function toggleStation(element, stationId) {
+            element.classList.toggle('selected');
+            
+            if (element.classList.contains('selected')) {
+                visitedStations.add(stationId);
+                document.getElementById(`badge-${stationId}`).classList.add('completed');
+            } else {
+                visitedStations.delete(stationId);
+                document.getElementById(`badge-${stationId}`).classList.remove('completed');
+            }
+            
+            updateProgressCount();
+            
+            // Add sparkle effect
+            createSparkles(element);
+        }
+
+        // Update progress counter
+        function updateProgressCount() {
+            const count = visitedStations.size;
+            document.getElementById('progressCount').textContent = `${count} / 7 Stations Explored`;
+        }
+
+        // Add glimmer to collection
+        function addGlimmer() {
+            const textarea = document.getElementById('newGlimmer');
+            const glimmerText = textarea.value.trim();
+            
+            if (glimmerText) {
+                const glimmerList = document.getElementById('glimmerList');
+                const glimmerItem = document.createElement('div');
+                glimmerItem.className = 'glimmer-item';
+                glimmerItem.innerHTML = `<p>${glimmerText}</p>`;
+                
+                // Add animation
+                glimmerItem.style.opacity = '0';
+                glimmerItem.style.transform = 'scale(0.8)';
+                glimmerList.insertBefore(glimmerItem, glimmerList.firstChild);
+                
+                setTimeout(() => {
+                    glimmerItem.style.transition = 'all 0.5s ease';
+                    glimmerItem.style.opacity = '1';
+                    glimmerItem.style.transform = 'scale(1)';
+                }, 10);
+                
+                // Clear textarea
+                textarea.value = '';
+                
+                // Store in array (could be saved to localStorage)
+                glimmers.push(glimmerText);
+                
+                // Create celebration sparkles
+                createSparkles(glimmerItem);
+            }
+        }
+
+        // Create sparkle effects
+        function createSparkles(element) {
+            const rect = element.getBoundingClientRect();
+            const sparkleContainer = document.getElementById('sparkleContainer');
+            
+            for (let i = 0; i < 12; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = rect.left + rect.width / 2 + 'px';
+                sparkle.style.top = rect.top + rect.height / 2 + 'px';
+                sparkle.style.animationDelay = `${i * 0.1}s`;
+                
+                // Random direction
+                const angle = (Math.PI * 2 * i) / 12;
+                const distance = 50 + Math.random() * 50;
+                sparkle.style.setProperty('--tx', `${Math.cos(angle) * distance}px`);
+                sparkle.style.setProperty('--ty', `${Math.sin(angle) * distance}px`);
+                
+                sparkleContainer.appendChild(sparkle);
+                
+                setTimeout(() => sparkle.remove(), 4000);
+            }
+        }
+
+        // Initialize fade-in animations on load
+        window.addEventListener('load', () => {
+            const fadeElements = document.querySelectorAll('.fade-in-section');
+            fadeElements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('visible');
+                }, index * 150);
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Update sparkle animation with CSS variables
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes sparkleFloat {
+                0% { 
+                    transform: translate(0, 0) scale(0); 
+                    opacity: 0;
+                }
+                50% { 
+                    transform: translate(var(--tx, 0), var(--ty, -30px)) scale(1); 
+                    opacity: 0.8;
+                }
+                100% { 
+                    transform: translate(var(--tx, 0), var(--ty, -50px)) scale(0); 
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
